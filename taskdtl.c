@@ -28,6 +28,8 @@ static long process_task(struct task_struct *task)
 		uid  = from_kuid(&init_user_ns, cred->uid);
 	}
 
+	get_task_struct(task);
+
 	if (likely(in_task())) {
 		/* general info*/
 		pr_info(" name  : %s\n"
